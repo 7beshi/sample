@@ -45,24 +45,24 @@
       <!-- ボタンの設定 -->
       <br>
       <!-- TOPへ戻るボタン(top画面へ遷移する) -->
-      <button class="btn" type = "button" name = "button_return" value = "return" onclick = "location.href='toppage.php'">
+      <button class = "btn" type = "button" name = "button_return" value = "return" onclick = "location.href='toppage.php'">
         TOPへ戻る
       </button>
 
       <!-- 更新ボタン(配膳フラグの更新する) -->
-      <button class="btn" type = "submit" name = "button_update" value = "update">
+      <button class = "btn" type = "submit" name = "button_update" value = "update">
         更新
       </button>
 
       <br>
 
       <!-- リセットボタン(チェックを全てはずす) -->
-      <button class="btn" type = "reset" name = "button_reset" value = "reset">
+      <button class = "btn" type = "reset" name = "button_reset" value = "reset">
         リセット
       </button>
 
       <!-- 削除ボタン(遷移先で、商品の削除確認を行う) -->
-      <button class="btn" type = "submit" name = "button_delete" value = "delete" formaction = "order_management_delete.php">
+      <button class = "btn" type = "submit" name = "button_delete" value = "delete" formaction = "order_management_delete.php">
         削除
       </button>
     </form>
