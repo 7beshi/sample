@@ -9,6 +9,7 @@
     private function order_management(){
       $pdo = new PDO($this->dnsinfo, $this->db_user, $this->db_pw);
 
+      // 注文管理テーブルから、注文ID、商品名、座席番号、配膳フラグを取得
       $sql = "select orderid, productname, seatnum, servingflag from orderaccept";
       $stmt = $pdo->prepare($sql);
       $stmt->execute(null);
@@ -41,7 +42,7 @@
     public function order_management_update($served_order){
       $pdo = new PDO($this->dnsinfo, $this->db_user, $this->db_pw);
 
-      foreach($served_order as $row){
+      foreach($served_order as $row){ // 配膳フラグを1に更新
         $sql_update = "update orderaccept set servingflag = 1 where orderid = ?";
         $stmt_update = $pdo -> prepare($sql_update);
         $stmt_update -> execute(Array($row));
@@ -52,7 +53,7 @@
     public function order_management_delete($delete_order){
       $pdo = new PDO($this->dnsinfo, $this->db_user, $this->db_pw);
 
-      foreach($delete_order as $row){
+      foreach($delete_order as $row){ // 未配膳の商品を削除する
         $sql_delete = "delete from orderaccept where orderid = ? and servingflag = 0";
         $stmt_delete = $pdo -> prepare($sql_delete);
         $stmt_delete -> execute(Array($row));
