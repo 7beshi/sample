@@ -1,8 +1,8 @@
 <?php
   // ログインしているかを確認
-  //include "login_class.php";
-  //$login = new login_class();
-  //$login->ses_start();
+  include "login_class.php";
+  $login = new login_class();
+  $login->ses_start();
 
   // 直接URLを入力されたかを確認
   if(!isset($_POST["button_delete"])){ // 直接入力されたとき(注文管理画面で削除ボタンが押されていないとき)
@@ -27,7 +27,7 @@
       <body>
         <h2>削除内容確認</h2>
 
-        <!-- チェックが入っているかの確認-->
+        <!-- 商品にチェックが入っているかの確認-->
         <?php
         if(!isset($_POST["product"])){ // チェックが入っていないとき
           echo "注文が指定されていません。";
@@ -52,7 +52,7 @@
             ?>
             <?php
             // 削除ボタンの処理
-            if(isset($_POST["button_delete_check"]) and isset($_POST["product"])){
+            if(isset($_POST["button_delete_check"]) and isset($_POST["product"])){ // 削除ボタンが押され、チェックが入った商品があるか確認
               $kbn = htmlspecialchars($_POST["button_delete_check"], ENT_QUOTES, "utf-8");
               switch($kbn){
                 case "delete_check":
@@ -73,12 +73,12 @@
 
             <!-- ボタンの作成 -->
             <!-- 戻るボタン(注文管理画面へ遷移する) -->
-            <button class="btn" type = "button" name = "button_delete_return" value = "delete_return" onclick = "location.href='order_management.php'">
+            <button class = "btn" type = "button" name = "button_delete_return" value = "delete_return" onclick = "location.href='order_management.php'">
               戻る
             </button>
 
             <!-- 削除ボタン -->
-            <button class="btn" type = "submit" name = "button_delete_check" value = "delete_check">
+            <button class = "btn" type = "submit" name = "button_delete_check" value = "delete_check">
               削除
             </button>
 
