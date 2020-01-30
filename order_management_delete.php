@@ -1,8 +1,8 @@
 <?php
   // ログインしているかを確認
-  include "login_class.php";
-  $login = new login_class();
-  $login->ses_start();
+  //include "login_class.php";
+  //$login = new login_class();
+  //$login->ses_start();
 
   // 直接URLを入力されたかを確認
   if(!isset($_POST["button_delete"])){ // 直接入力されたとき(注文管理画面で削除ボタンが押されていないとき)
